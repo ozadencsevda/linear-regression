@@ -1,61 +1,61 @@
-#  Linear Regression Analysis — Multi-Dataset Comparison
+#  Lineer Regresyon Analizi — Çok Veri Setli Karşılaştırma
 
-A supervised machine learning project applying **Linear Regression** across three different datasets to explore how data characteristics affect model performance. Each dataset goes through the same full ML pipeline and is benchmarked against a DummyRegressor baseline.
+Üç farklı veri seti üzerinde **Lineer Regresyon** uygulayarak veri yapısının model performansına etkisini inceleyen denetimli öğrenme projesi. Her veri seti aynı tam ML pipeline'ından geçirilmiş ve DummyRegressor baseline'ı ile karşılaştırılmıştır.
 
 ---
 
-##  Project Overview
+##  Proje Özeti
 
-| Dataset | Target Variable | R² Score |
+| Veri Seti | Hedef Değişken | R² Skoru |
 |---|---|---|
-|  Ames Housing | `SalePrice` (house price) | 0.05 |
-|  Wine Quality | `class` (quality score) | 0.38 |
-|  CPU Activity | `usr` (CPU usage %) | 0.88 |
+|  Ames Housing | `SalePrice` (ev fiyatı) | 0.05 |
+|  Wine Quality | `class` (kalite skoru) | 0.38 |
+|  CPU Activity | `usr` (CPU kullanım %) | 0.88 |
 
 ---
 
-##  Pipeline (Applied to Each Dataset)
+##  Pipeline (Her Veri Setine Uygulanan)
 
 ```
-Raw Data → EDA → Preprocessing → Train/Test Split → Feature Scaling → Model Training → Evaluation
+Ham Veri → EDA → Ön İşleme → Train/Test Split → Ölçeklendirme → Model Eğitimi → Değerlendirme
 ```
 
-**1. Exploratory Data Analysis (EDA)**
-- Dataset shape and type inspection
-- Missing value detection
-- Target variable distribution
-- Correlation heatmap across numerical features
+**1. Keşifsel Veri Analizi (EDA)**
+- Veri seti boyutu ve tip incelemesi
+- Eksik değer tespiti
+- Hedef değişken dağılımı
+- Sayısal değişkenler arası korelasyon ısı haritası
 
-**2. Preprocessing**
-- Median imputation for numerical columns, mode for categorical
-- One-Hot Encoding for categorical variables (Ames Housing)
-- IQR-based outlier removal on the target variable
+**2. Veri Ön İşleme**
+- Sayısal sütunlar için medyan, kategorik sütunlar için mod ile eksik değer doldurma
+- Kategorik değişkenler için One-Hot Encoding (Ames Housing)
+- Hedef değişkende IQR yöntemiyle aykırı değer temizleme
 
-**3. Model Training**
-- 80/20 train-test split (`random_state=42`)
-- `StandardScaler` applied to features
+**3. Model Eğitimi**
+- %80 eğitim, %20 test ayrımı (`random_state=42`)
+- `StandardScaler` ile özellik ölçeklendirme
 - Baseline: `DummyRegressor(strategy='mean')`
-- Main model: `LinearRegression()`
+- Ana model: `LinearRegression()`
 
-**4. Evaluation**
-- MAE, RMSE, R² metrics
-- Actual vs. Predicted scatter plot
+**4. Değerlendirme**
+- MAE, RMSE, R² metrikleri
+- Gerçek vs. Tahmin scatter plot
 - Residual plot
-- Cross-dataset comparison charts
+- Veri setleri arası karşılaştırma grafikleri
 
 ---
 
-## 📈 Key Findings
+##  Temel Bulgular
 
-- **CPU Activity** achieved the strongest results (R² = 0.88), reflecting a clear linear relationship between features and CPU usage.
-- **Wine Quality** showed moderate performance (R² = 0.38); the discrete integer nature of the target variable limits linear regression's fit.
-- **Ames Housing** performed poorly (R² = 0.05) due to high dimensionality after one-hot encoding — 79 features expanding into a sparse feature space.
+- **CPU Activity** en yüksek performansı sergilemiştir (R² = 0.88); özellikler ile CPU kullanımı arasında güçlü bir doğrusal ilişki mevcuttur.
+- **Wine Quality** orta düzey performans göstermiştir (R² = 0.38); hedef değişkenin tam sayılardan oluşması lineer regresyonun uyumunu kısıtlamaktadır.
+- **Ames Housing** en düşük performansı vermiştir (R² = 0.05); One-Hot Encoding sonrası 79 özelliğin yarattığı yüksek boyutluluk lineer regresyonu olumsuz etkilemiştir.
 
-In all three cases, Linear Regression meaningfully outperformed the baseline model.
+Üç veri setinde de Lineer Regresyon, baseline modeli anlamlı ölçüde geride bırakmıştır.
 
 ---
 
-##  Requirements
+##  Gereksinimler
 
 ```bash
 pip install numpy pandas matplotlib seaborn scikit-learn
@@ -63,26 +63,26 @@ pip install numpy pandas matplotlib seaborn scikit-learn
 
 ---
 
-##  Usage
+##  Kullanım
 
 ```bash
-git clone https://github.com/<your-username>/lineer-regresyon-analizi.git
+git clone https://github.com/<kullanici-adi>/lineer-regresyon-analizi.git
 cd lineer-regresyon-analizi
 jupyter notebook lineerRegresyonAnalizi.ipynb
 ```
 
 ---
 
-##  Repository Structure
+## 📁 Depo Yapısı
 
 ```
-├── lineerRegresyonAnalizi.ipynb   # Main notebook
+├── lineerRegresyonAnalizi.ipynb   # Ana notebook
 └── README.md
 ```
 
 ---
 
-## 🛠 Tech Stack
+## 🛠 Kullanılan Teknolojiler
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0+-orange?logo=scikit-learn)
